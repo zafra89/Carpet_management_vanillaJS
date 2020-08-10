@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Web de gestión de alfombras</title>
 </head>
 <body>
-    <h1>Web de gestión de alfombras</h1>
     <!--
         Ejercicio: Esta web está incompleta, quién la desarrolló dejó todo a medias.
         Se trata de terminarla, sustituir lo que el que la empezó hizo mal,
@@ -26,34 +25,40 @@
             cuyo id="input_total"
         - Añadir otro botón que calcule el total de la suma de los precios
         -->
-    <br><label for="input_pais">País:</label>
-    <input name="input_pais" id="input_pais" type="text" placeholder="País de origen"/>
-    <br><label for="input_precio">Precio:</label>
-    <input name="input_precio" id="input_precio" type="number" placeholder="Precio"/>
-    <br><label for="input_stock">En stock:</label>
-    <input name="input_stock" id="input_stock" type="checkbox"/><br>
 
-    <input id="button_add" type="button" value="Añadir"/>
-    <input id="button_clean" type="button" value="Borrar todo"/>
-    <input id="button_calc" type="button" value="Mostrar precio total"/>
+    <h1>Web de gestión de alfombras</h1>
+    <form action="">
+        <br><label for="input_pais">País:</label>
+        <input name="input_pais" id="input_pais" type="text" placeholder="País de origen"/><br>
+        <label for="input_precio">Precio:</label>
+        <input name="input_precio" id="input_precio" type="number" placeholder="Precio"/><br>
+        <label for="input_stock">En stock:</label>
+        <input name="input_stock" id="input_stock" type="checkbox"/><br>
 
-    <h2>Listado de alfombras:</h2>
-    <br><label for="input_total">Total de alfombras:</label>
-    <input name="input_total" id="input_total" type="text" value="2 alfombras"/>
+        <input id="button_add" type="button" value="Añadir"/>
+        <input id="button_clean" type="button" value="Borrar todo"/><br><br>
 
-    <table>
-        <thead>
-            <tr>
-                <th> País </th>
-                <th> Precio </th>
-                <th> En stock </th>
-            </tr>
-        </thead>
-        <tbody id="tbody_alfombras">
-            <!--Aquí se inyectan las rows-->
-        </tbody>
-    </table>
-    <p class="precio-total"></p>
+        <h2>Listado de alfombras:</h2><br>
+        <label for="input_total">Total de alfombras:</label>
+        <input name="input_total" id="input_total" type="text" value="0" disabled/><br>
+        <label for="precio_total">Precio total:</label>
+        <input name="precio_total" id="precio_total" type="text" value="0" disabled/><br><br>
+    </form>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th> País </th>
+                    <th> Precio </th>
+                    <th> En stock </th>
+                </tr>
+            </thead>
+            <tbody id="tbody_alfombras">
+                <!--Aquí se inyectan las rows-->
+            </tbody>
+        </table>
+    </div>
+    <p class="error_msg"></p>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

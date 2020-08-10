@@ -10,23 +10,32 @@ var inputPais, inputPrecio, inputStock;
 
 inicializar();
 contadorAlfombras();
+calcularPrecioTotal();
 
 function inicializar() {
   buttonAdd.addEventListener('click', addAlfombraToArray);
   buttonDel.addEventListener('click', borrarListado);
-  buttonCalc.addEventListener('click', calcularPrecioTotal);
 }
 
 function addAlfombraToArray() {
   inputPais = document.getElementById("input_pais");
   inputPrecio = document.getElementById("input_precio");
   inputStock = document.getElementById("input_stock");
+  var errorMsg = document.querySelector(".error_msg");
 
-  paises[paises.length] = inputPais.value; //se añade a la array el valor de los inputs
-  precios[precios.length] = inputPrecio.value;
-  enStock[enStock.length] = inputStock.value;
-  pintarTabla();
-  contadorAlfombras();
+  if (inputPais.value != "" && inputPrecio.value != "") {
+    paises[paises.length] = inputPais.value;
+    precios[precios.length] = inputPrecio.value;
+    enStock[enStock.length] = inputStock.value;
+    errorMsg.textContent = "";
+    pintarTabla();
+    contadorAlfombras();
+    calcularPrecioTotal();
+    inputPais.value = "";
+    inputPrecio.value = "";
+  } else {
+    errorMsg.textContent = "Los campos de País y Precio son obligatorios";
+  }
 }
 
 function pintarTabla() {
@@ -37,12 +46,12 @@ function pintarTabla() {
 
 function estructuraTabla() {
   return "<tr><td>" + paises[paises.length - 1] + " </td><td>" + precios[precios.length - 1] + " € </td><td>" + tieneStock() + "</td></tr>";
-  //se añade el length - 1 porque queremos pintar el elemento que ya está en la array cuyo index es la longitud de la array menos una posición
+  //se añade el length - 1 porque queremos pintar los elementos que YA ESTÁN EN LA ARRAY cuyo index es la longitud de la array menos una posición.
 }
 
 function tieneStock() {
-  if(inputStock.checked) {
-    return "SI";
+  if (inputStock.checked) {
+    return "SÍ";
   } else {
     return "NO";
   }
@@ -58,16 +67,19 @@ function borrarListado() {
   precios = [];
   paises = [];
   enStock = [];
-  contadorAlfombras();
   calcularPrecioTotal();
+  contadorAlfombras();
+  document.getElementById("input_pais").value = "";
+  document.getElementById("input_precio").value = "";
+  document.querySelector(".error_msg").textContent = "";
 }
 
 function calcularPrecioTotal() {
-  var parPrecioTotal = document.querySelector('.precio-total');
   var calc = parseFloat(0);
+  var inputPrecioTotal = document.getElementById('precio_total');
 
   for (let i = 0; i < precios.length; i++) {
     calc += parseFloat(precios[i]);
   }
-  parPrecioTotal.textContent = "El precio total de las alfombras es: " + calc + "€";
+  inputPrecioTotal.value = calc + "€";
 }
