@@ -6,7 +6,7 @@ var buttonAdd = document.getElementById("button_add");
 var buttonDel = document.getElementById("button_clean");
 var buttonCalc = document.getElementById("button_calc");
 
-var inputPais, inputPrecio, inputStock;
+var inputPais, inputPrecio, inputStock
 
 inicializar();
 contadorAlfombras();
@@ -26,7 +26,6 @@ function addAlfombraToArray() {
   if (inputPais.value != "" && inputPrecio.value != "") {
     paises[paises.length] = inputPais.value;
     precios[precios.length] = inputPrecio.value;
-    enStock[enStock.length] = inputStock.value;
     errorMsg.textContent = "";
     pintarTabla();
     contadorAlfombras();
@@ -34,7 +33,7 @@ function addAlfombraToArray() {
     inputPais.value = "";
     inputPrecio.value = "";
   } else {
-    errorMsg.textContent = "Los campos de País y Precio son obligatorios";
+    errorMsg.textContent = "Los campos de País y Precio son obligatorios.";
   }
 }
 
@@ -45,16 +44,9 @@ function pintarTabla() {
 }
 
 function estructuraTabla() {
-  return "<tr><td>" + paises[paises.length - 1] + " </td><td>" + precios[precios.length - 1] + " € </td><td>" + tieneStock() + "</td></tr>";
-  //se añade el length - 1 porque queremos pintar los elementos que YA ESTÁN EN LA ARRAY cuyo index es la longitud de la array menos una posición.
-}
-
-function tieneStock() {
-  if (inputStock.checked) {
-    return "SÍ";
-  } else {
-    return "NO";
-  }
+  return "<tr><td>" + paises[paises.length - 1]
+   + " </td><td>" + precios[precios.length - 1]
+   + " € </td><td>" + (inputStock.checked? "SÍ" : "NO") + "</td></tr>";
 }
 
 function contadorAlfombras() {
@@ -69,9 +61,10 @@ function borrarListado() {
   enStock = [];
   calcularPrecioTotal();
   contadorAlfombras();
-  document.getElementById("input_pais").value = "";
-  document.getElementById("input_precio").value = "";
-  document.querySelector(".error_msg").textContent = "";
+  inputPais.value = "";
+  inputPrecio.value = "";
+  inputStock.checked = false;
+  errorMsg.textContent = "";
 }
 
 function calcularPrecioTotal() {

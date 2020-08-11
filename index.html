@@ -7,38 +7,19 @@
     <title>Web de gestión de alfombras</title>
 </head>
 <body>
-    <!--
-        Ejercicio: Esta web está incompleta, quién la desarrolló dejó todo a medias.
-        Se trata de terminarla, sustituir lo que el que la empezó hizo mal,
-        eliminar lo que ya no es necesario (ya sea código HTML o JavaScript),
-        añadir la funcionalidad y las funciones que faltan, y programar los condicionales,
-        bucles, variables, arrays, etc... necesarias para que funcione como debería.
-        Funcionamiento:
-         - La aplicación debe pintar la información de una serie de alfombras:
-           Debe mostrar su país de origen, su precio y si está en stock o no.
-        - El usuario puede rellenar los campos, y cuando pulse "añadir", se deben
-          añadir estos valores al listado
-        - Cuando pulse "borrar todo", debemos eliminar el array con algunos de los métodos
-          indicados en este hilo de la web Stack Overflow:
-            https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
-        - Añadir un botón que pueda indicar la cantidad de alfombras que hay en el campo
-            cuyo id="input_total"
-        - Añadir otro botón que calcule el total de la suma de los precios
-        -->
-
     <h1>Web de gestión de alfombras</h1>
     <form action="">
         <br><label for="input_pais">País:</label>
         <input name="input_pais" id="input_pais" type="text" placeholder="País de origen"/><br>
         <label for="input_precio">Precio:</label>
-        <input name="input_precio" id="input_precio" type="number" placeholder="Precio"/><br>
+        <input name="input_precio" id="input_precio" type="number" placeholder="Precio en €"/><br>
         <label for="input_stock">En stock:</label>
         <input name="input_stock" id="input_stock" type="checkbox"/><br>
 
         <input id="button_add" type="button" value="Añadir"/>
         <input id="button_clean" type="button" value="Borrar todo"/><br><br>
 
-        <h2>Listado de alfombras:</h2><br>
+        <h2>Listado de alfombras:</h2>
         <label for="input_total">Total de alfombras:</label>
         <input name="input_total" id="input_total" type="text" value="0" disabled/><br>
         <label for="precio_total">Precio total:</label>
