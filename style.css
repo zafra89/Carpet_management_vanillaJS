@@ -3,12 +3,17 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(236, 231, 178);
+}
+
 table, td, tr, th {
   margin: 0 auto;
   border: 1px solid black;
   width: 500px;
-  font-size: 17px;
+  font-size: 15px;
   padding: 6px;
+  background-color: white;
 }
 
 .error_msg {
